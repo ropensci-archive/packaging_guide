@@ -1,6 +1,6 @@
 # rOpenSci Style Guide
 
-The following are in-development style guidelines for contributed packages to rOpenSci. See [issues]() to discuss these.
+The following are in-development style guidelines for contributed packages to rOpenSci. See [issues](https://github.com/ropensci/styleguide/issues) to discuss these.
 
 ## Package naming
 
