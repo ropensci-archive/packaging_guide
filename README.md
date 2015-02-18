@@ -41,6 +41,10 @@ When calling another function internally, such as `optim()`, pass all the functi
 
 Use `message()` and `warning()` to communicate with the user in your functions. Please do not use `print()` or `cat()` unless it's for a `print.*()` method, as these methods of printing messages are harder for the user to suppress.
 
+## DRY out your code
+
+Attempt to follow the [Don't Repeat Yourself (DRY) principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). This generally boils down to: keep your functions small. Even we can't claim to have perfectly DRYed code, but we are getting better at this :)
+
 ## Best practices for working with APIs
 
 xxxx
