@@ -1,8 +1,6 @@
-# rOpenSci Style Guide
+# rOpenSci Packaging Guide
 
-The following are in-development style guidelines for contributed packages to rOpenSci. Use [issues](https://github.com/ropensci/styleguide/issues) to discuss these.
-
-This guide includes a bit more than what would typically be in a style guide. We are developing a separate set of policies which we'll enforce, while this guide includes suggestions for developing packages contributed to rOpenSci. Thus, this guide needs to include more than just style.
+The following are in-development packaging guidelines for contributed packages to rOpenSci. Use [issues](https://github.com/ropensci/styleguide/issues) to discuss these.
 
 __Sections:__
 
