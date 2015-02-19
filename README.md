@@ -1,6 +1,6 @@
 # rOpenSci Packaging Guide
 
-The following are in-development packaging guidelines for contributed packages to rOpenSci. Use [issues](https://github.com/ropensci/styleguide/issues) to discuss these.
+The following are in-development packaging guidelines for contributed packages to rOpenSci. Use [issues](https://github.com/ropensci/packaging_guide/issues) to discuss these.
 
 __Sections:__
 
