@@ -19,6 +19,7 @@ __Sections:__
     * [Authentication](#auth)
     * [Testing](#testing)
 * [Continuous integration](#ci)
+* [Versioning](#ver)
 * [Further guidance](#further)
 
 ## <a href="#pkgnaming" name="pkgnaming"></a> Package naming
@@ -69,6 +70,22 @@ Use `Imports` instead of `Depends` for packages providing functions you use inte
 
 When calling another function internally, such as `optim()`, pass all the function options up to the user as options with defaults, rather than hard-coding in a certain choice, such as the method for optimization.
 
+A common set of options you want to expose to users when working with web APIs are curl options. When using `httr`, this is as simple as adding `...` as a parameter in your functions. For example:
+
+```r
+foo <- function(...) {
+  GET("http://google.com", ...)
+}
+```
+
+Allows the user to pass in curl options like:
+
+```r
+foo(config = verbose())
+```
+
+In that case we can print curl information to the console as curl does its thing. See [our blog post](http://ropensci.org/blog/2014/12/18/curl-options/) for more on curl options.
+
 ## <a href="#messages" name="messages"></a> Console messages
 
 Use `message()` and `warning()` to communicate with the user in your functions. Please do not use `print()` or `cat()` unless it's for a `print.*()` method, as these methods of printing messages are harder for the user to suppress.
@@ -81,10 +98,15 @@ Attempt to follow the [Don't Repeat Yourself (DRY) principle](https://en.wikiped
 
 Again, Hadley has good advice here. See his vignette [Best practices for writing an API package](http://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) in the `httr` package.
 
+... more to come
+
 ### <a href="#tools" name="tools"></a> Tools
 
 * For http requests, use `httr` instead of `RCurl`
-* For parinsg, use `jsonlite` instead of `rjson` or `RJSONIO`
+* For parinsg JSON, use `jsonlite` instead of `rjson` or `RJSONIO`
+* For parinsg XML, use `xml2` instead of `XML`
+
+... more to come
 
 ### <a href="#auth" name="auth"></a> Authentication
 
@@ -92,6 +114,8 @@ The `httr` package should have all the tools you'll need for authentication:
 
 * Simple user/password: `authenticate()`
 * OAuth: adsfasdf
+
+... more to come
 
 ### <a href="#testing" name="testing"></a> Testing
 
@@ -101,8 +125,20 @@ Strive to right tests as you write each new function. This serves the obvious ne
 
 ## <a href="#ci" name="ci"></a> Continuous integration
 
-xxxxx
+We want all rOpenSci packages to use continuous integration. This ensures that all commits, pull requests, and new branches are run through `R CMD CHECK`. R is now a [natively supported language on Travis-CI](http://blog.travis-ci.com/2015-02-26-test-your-r-applications-on-travis-ci/), making it easier than ever to do continuous integration. See [R Packages](http://r-pkgs.had.co.nz/check.html#travis) for more help. 
+
+## <a href="#ver" name="ver"></a> Versioning
+
+* Semantic versioning: rOpenSci packages should generally follow [semantic versioning][semver], of the form `major.minor.patch (x.y.z)`, e.g., `0.1.7`. In an ideal world, rOpenSci packages may follow Yihui's rule of only sending minor versions to CRAN per his blog post [R Package Versioning][yihuiver]. However, given that most rOpenSci packages interact with web resources that can change at any time (both minor non-breaking, and major breaking changes), we sometimes need to push an immediate fix to CRAN. This fix may not have changed much, so usually doesn't warrant a bump in the minor version, but we'll instead just bump patch version. A version `1.0` does not necessarily indicate maturity - rather if a package is going to be considered stable, and e.g., in maintenance mode into the future, then indicate that at whatever version.
+* Bump the version number after going through CRAN. So if you push `0.4.0` to CRAN, then immediately after its on CRAN, bump the development version on GitHub to e.g., `0.4.1`.
+* Development version numbers: We are moving towards adopting the convention used by Hadley Wickham of appending e.g., `.999` to the end of the version number for GitHub versions, such that there are 4 places (e.g., `0.1.1.999`). This distinctly separates CRAN versions that never have the fourth slot (e.g., `0.1.1`). 
+* Make sure to tag all versions pushed to CRAN. Use `git tag` (e.g., `git tag v0.1.1`). In addition, put related NEWS for each version in a new release for that tag on the Releases page (see for example this release for [ropensci/rplos](https://github.com/ropensci/rplos/releases/tag/v0.4.6)).
+* Use Github Milestones to help track issues associated with versions. Go to the Issues tab on the side, then to Milestones, and create a milestone labeled with the issue in question. Then assign issues as needed to that milestone. This helps make sure you don't miss something that should go into a version.
+* `devtools::session_info()` reports versions, and whether a package was installed from CRAN, locally or from GitHub (and git commit from which it was installed). 
 
 ## <a href="#further" name="further"></a> Further guidance
 
 The [`devtools` package](https://github.com/hadley/devtools) and it's wiki are an excellent resource for in-depth package development help.
+
+[semver]: http://semver.org/
+[yihuiver]: http://yihui.name/en/2013/06/r-package-versioning/
