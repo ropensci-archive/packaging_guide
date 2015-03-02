@@ -67,6 +67,8 @@ All packages should have a README file, named `README.md`, in the root of the re
 [![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
 ```
 
+We recommend not creating `README.md` directly, but from a `README.Rmd` file (an Rmarkdown file). The advantage of the `.Rmd` file is you can combine text with code that can be easily updated whenever needed. That is, you don't need to copy and paste output of your examples into a `.md` file. Once you have the `README.Rmd` file, you can compile it to `README.md` easily by doing `knitr::knit("README.Rmd")`. Make sure to add appropriate options to your knitr chunks (e.g., you probably don't want your instructions on installing the package running every time your update your README). See `devtools::use_readme_rmd()` to get a template for a `README.Rmd` file in your package.
+
 See the [gistr README](https://github.com/ropensci/gistr#gistr) for a good example README to follow.
 
 ## <a href="#vign" name="vign"></a> Vignettes
