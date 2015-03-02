@@ -8,6 +8,8 @@ __Sections:__
 * [Function/variable naming](#funvar)
 * [Syntax](#syntax)
 * [Files and file names](#files)
+* [README](#readme)
+* [Vignettes](#vign)
 * [Documentation](#docs)
 * [Examples](#egs)
 * [Package dependencies](#deps)
@@ -49,6 +51,29 @@ Follow [Hadley's guidelines on syntax](http://adv-r.had.co.nz/Style.html). In sh
 ## <a href="#files" name="files"></a> Files and file names
 
 Use meaningful names like `optim.R` instead of `aaaa.r` if the function within is named `optim()`. In addition, try to avoid piling many unrelated functions in a single file, so that the file `optim.R` really only has the function `optim()` and any helper functions only used by it. Internal helper functions used across many functions should go in a separate file, e.g. `utils.R`. Naming files so that others can easily find things makes collaborative development easier
+
+## <a href="#readme" name="readme"></a> README
+
+All packages should have a README file, named `README.md`, in the root of the repository. The README should include, from top to bottom:
+
+* The package name
+* Badges for Travis-CI (and any other badges)
+* Short description of the package
+* Installation instructions
+* Example usage
+* rOpenSci footer image - use this markdown line
+
+```
+[![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+```
+
+See the [gistr README](https://github.com/ropensci/gistr#gistr) for a good example README to follow.
+
+## <a href="#vigns" name="vigns"></a> Vignettes
+
+Vignettes are an important piece of R packages that many users look for when they install and load a package. Vignettes are more than a help/man file, and can have long (or short) examples/use cases of working with the package. They can be written in markdown or latex. We recommend using markdown - see the [R Packages book](http://r-pkgs.had.co.nz/vignettes.html) for help. Though if you prefer latex, go for it. 
+
+We want all rOpenSci packages to have at least one vignette. Ideally, each package will have more than one vignette, covering additional use cases, package functionality, etc. 
 
 ## <a href="#docs" name="docs"></a> Documentation
 
