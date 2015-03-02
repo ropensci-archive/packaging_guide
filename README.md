@@ -8,7 +8,7 @@ __Sections:__
 * [Function/variable naming](#funvar)
 * [Syntax](#syntax)
 * [Files and file names](#files)
-* [README](#readme)
+* [README](#rme)
 * [Vignettes](#vign)
 * [Documentation](#docs)
 * [Examples](#egs)
@@ -52,7 +52,7 @@ Follow [Hadley's guidelines on syntax](http://adv-r.had.co.nz/Style.html). In sh
 
 Use meaningful names like `optim.R` instead of `aaaa.r` if the function within is named `optim()`. In addition, try to avoid piling many unrelated functions in a single file, so that the file `optim.R` really only has the function `optim()` and any helper functions only used by it. Internal helper functions used across many functions should go in a separate file, e.g. `utils.R`. Naming files so that others can easily find things makes collaborative development easier
 
-## <a href="#readme" name="readme"></a> README
+## <a href="#rme" name="rme"></a> README
 
 All packages should have a README file, named `README.md`, in the root of the repository. The README should include, from top to bottom:
 
@@ -69,7 +69,7 @@ All packages should have a README file, named `README.md`, in the root of the re
 
 See the [gistr README](https://github.com/ropensci/gistr#gistr) for a good example README to follow.
 
-## <a href="#vigns" name="vigns"></a> Vignettes
+## <a href="#vign" name="vign"></a> Vignettes
 
 Vignettes are an important piece of R packages that many users look for when they install and load a package. Vignettes are more than a help/man file, and can have long (or short) examples/use cases of working with the package. They can be written in markdown or latex. We recommend using markdown - see the [R Packages book](http://r-pkgs.had.co.nz/vignettes.html) for help. Though if you prefer latex, go for it. 
 
