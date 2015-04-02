@@ -129,9 +129,9 @@ Again, Hadley has good advice here. See his vignette [Best practices for writing
 
 ### <a href="#tools" name="tools"></a> Tools
 
-* For http requests, use `httr` instead of `RCurl`
-* For parinsg JSON, use `jsonlite` instead of `rjson` or `RJSONIO`
-* For parinsg XML, use `xml2` instead of `XML`
+* For http requests, use `httr` instead of `RCurl`. `RCurl` is a low level wrapper around the `libcurl` library, and has a lot of flexibility. `httr` is a higher level client, making it much easier to do http requests. In addition, `httr` will be maintained moving forward, and is actively incorporating new feaures.
+* For parinsg JSON, use `jsonlite` instead of `rjson` or `RJSONIO`. These packages do similar things, but `jsonlite` is now the most used JSON client for R, and we believe will get the most support moving forward.
+* For parinsg XML, if you only need to parse XML data, `xml2` is a good option as it makes parsing easier. However, if you need to create XML, use the `XML` package. The `XML` package is more low level than `xml2`, and allows finer manipulation, and may be favored by those more familiar with XML data. 
 
 ... more to come
 
