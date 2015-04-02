@@ -2,6 +2,8 @@
 
 The following are in-development packaging guidelines for contributed packages to rOpenSci. Use [issues](https://github.com/ropensci/packaging_guide/issues) to discuss these.
 
+There are other style guides out there, though of slightly different scope. Google has an [R code style guide](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml), though doesn't cover packaging or working with APIs. Hadley Wickham has a [syntax style guide](http://adv-r.had.co.nz/Style.html), and a [book on writing R packages](http://r-pkgs.had.co.nz/).
+
 __Sections:__
 
 * [Package naming](#pkgnaming)
