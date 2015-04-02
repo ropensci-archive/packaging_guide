@@ -77,7 +77,11 @@ See the [gistr README](https://github.com/ropensci/gistr#gistr) for a good examp
 
 Vignettes are an important piece of R packages that many users look for when they install and load a package. Vignettes are more than a help/man file, and can have long (or short) examples/use cases of working with the package. They can be written in markdown or latex. We recommend using markdown - see the [R Packages book](http://r-pkgs.had.co.nz/vignettes.html) for help. Though if you prefer latex, go for it. 
 
-We want all rOpenSci packages to have at least one vignette. Ideally, each package will have more than one vignette, covering additional use cases, package functionality, etc. 
+We want all rOpenSci packages to have at least one vignette. Ideally, each package will have more than one vignette, covering additional use cases, package functionality, etc.
+
+You can include a vignette in your `vignettes/` directory in the root of your package that builds on package installation and `R CMD CHECK`, or one that is already built (e.g., rendered to markdown).
+
+The `roxygen2` package will soon include a roclet to automatically re-build  vignettes when they change.
 
 ## <a href="#docs" name="docs"></a> Documentation
 
@@ -89,11 +93,11 @@ By using `roxygen2`, this means you can generate your `NAMESPACE` automatically 
 
 ## <a href="#egs" name="egs"></a> Examples
 
-Include extensive examples in the documentation. In addition to demonstrating how to use the package, these can act as an easy way to test package functionality before there are proper tests. However, keep in mind we require tests in contributed packages. If you prefer not to clutter up code with extensive documentation, place further documentation/examples in files in a `man-roxygen` folder in the root of your package, and those will be combined into the manual file by the use of `@template <file name>`, for example.
+Include extensive examples in the documentation. In addition to demonstrating how to use the package, these can act as an easy way to test package functionality before there are proper tests. However, keep in mind we require tests in contributed packages. If you prefer not to clutter up code with extensive documentation, place further documentation/examples in files in a `man-roxygen` folder in the root of your package, and those will be combined into the manual file by the use of `@template <file name>`, for example. You can run examples with `devtools::run_examples()`. 
 
 ## <a href="#deps" name="deps"></a> Package dependencies
 
-Use `Imports` instead of `Depends` for packages providing functions you use internally only. Use `Depends` only if you intend for the user to have functions available from your package dependencies.
+Use `Imports` instead of `Depends` for packages providing functions you use internally only. Use `Depends` only if you intend for the user to have functions available from your package dependencies. Make sure to list packages used for testing (`testthat`), and documentation (`knitr`, `roxygen2`) in your `Suggests` section of package dependencies. If you use any packages in your examples sections, make sure to list those, if not already listed elsewhere, in `Enhances` section of package dependencies. 
 
 ## <a href="#options" name="options"></a> Expose options to the user
 
@@ -123,11 +127,11 @@ Use `message()` and `warning()` to communicate with the user in your functions. 
 
 Attempt to follow the [Don't Repeat Yourself (DRY) principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). This generally boils down to: keep your functions small. Even we can't claim to have perfectly DRYed code, but we are getting better at this :)
 
+This is an essential component of sustainabile, reliable software. If you repeat yourself often, you have a higher chance of making mistakes. In addition, it's simply easier to change something once instead of multiple times. 
+
 ## <a href="#apis" name="apis"></a> Best practices for working with APIs
 
 Again, Hadley has good advice here. See his vignette [Best practices for writing an API package](http://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) in the `httr` package.
-
-... more to come
 
 ### <a href="#tools" name="tools"></a> Tools
 
@@ -141,20 +145,23 @@ Again, Hadley has good advice here. See his vignette [Best practices for writing
 
 The `httr` package should have all the tools you'll need for authentication:
 
-* Simple user/password: `authenticate()`
-* OAuth: adsfasdf
-
-... more to come
+* Simple user/password: The `httr::authenticate()` function accepts username and password, an the type of of authentication. 
+* API key: If the API you work with supports API key authentication, you can pass the key as a query parameter (see `query` parameter), or in the header of the request (see `httr::add_headers()`), depending on what the API supports. If both are supported we recommend passing the key in the header as it is more secure. 
+* OAuth: `httr` supports OAuth1 and OAuth2 schemes, and are quite easy to work with. See the [httr demos](https://github.com/hadley/httr/tree/master/demo) for examples for various OAuth schemes. 
+* OAuth token: If the API you are working with supports OAuth tokens, this is often preferrable to using the full OAuth flow since its simpler. 
+* https: You shouldn't have a problem working with APIs that use https in `httr`. If you do run into problems, get in touch with us.
 
 ### <a href="#testing" name="testing"></a> Testing
 
-Use `testthat` for writing tests. `testthat` has a function `skip_on_cran()` that you can use to not run tests on CRAN. If you suspect that the web API your package works with could fail, you probably wan to not run tests that couuld fail on CRAN, else CRAN maintainers will complain. However, do always run tests on Travis-CI (and other continuous integration tools). See the section on [continuous integration](#ci)
+Use `testthat` for writing tests. Strive to write tests as you write each new function. This serves the obvious need to have proper testing for the package, but allows you to think about various ways in which a function can fail, and to _defensively_ code against those.
 
-Strive to right tests as you write each new function. This serves the obvious need to have proper testing for the package, but allows you to think about various ways in which a function can fail, and to code against those.
+`testthat` has a function `skip_on_cran()` that you can use to not run tests on CRAN. If you suspect that the web API your package works with could fail, you __do not__ want to run tests that couuld fail on CRAN, else CRAN maintainers will complain. However, do always run tests on Travis-CI (and other continuous integration tools). See the section on [continuous integration](#ci).
+
+Tests are especially tough when working with APIs since you are likely not in control of the server serving the API. If you write thorough tests, your tests should catch any time the API is down. 
 
 ## <a href="#ci" name="ci"></a> Continuous integration
 
-We want all rOpenSci packages to use continuous integration. This ensures that all commits, pull requests, and new branches are run through `R CMD CHECK`. R is now a [natively supported language on Travis-CI](http://blog.travis-ci.com/2015-02-26-test-your-r-applications-on-travis-ci/), making it easier than ever to do continuous integration. See [R Packages](http://r-pkgs.had.co.nz/check.html#travis) for more help. 
+All rOpenSci packages must use continuous integration. This ensures that all commits, pull requests, and new branches are run through `R CMD CHECK`. R is now a [natively supported language on Travis-CI](http://blog.travis-ci.com/2015-02-26-test-your-r-applications-on-travis-ci/), making it easier than ever to do continuous integration. See [R Packages](http://r-pkgs.had.co.nz/check.html#travis) for more help. 
 
 ## <a href="#ver" name="ver"></a> Versioning
 
