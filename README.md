@@ -17,13 +17,14 @@ A note about priority: The following are listed by priority, from highest priori
 * [Documentation](#docs)
 * [Examples](#egs)
 * [Package dependencies](#deps)
-* [Expose options to the user](#options)
+* [OO systems](#oo)
 * [Console messages](#messages)
 * [DRY out your code](#dry)
 * [Best practices for working with APIs](#apis)
     * [Tools](#tools)
     * [Authentication](#auth)
     * [Testing](#testing)
+    * [Expose options to the user](#options)
 * [Continuous integration](#ci)
 * [Versioning](#ver)
 * [Further guidance](#further)
@@ -110,6 +111,10 @@ The `roxygen2` package will soon include a roclet to automatically re-build  vig
 Attempt to follow the [Don't Repeat Yourself (DRY) principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). This generally boils down to: keep your functions small. Even we can't claim to have perfectly DRYed code, but we are getting better at this :)
 
 This is an essential component of sustainabile, reliable software. If you repeat yourself often, you have a higher chance of making mistakes. In addition, it's simply easier to change something once instead of multiple times.
+
+## <a href="#oo" name="oo"></a> Object systems
+
+There are many object systems in R, including S3, S4, and references classes (RC). We do not require a particular OO system - in fact, we have a mix of S3 and S4 in the rOpenSci family of packages. However, we do prefer S3 given that its very simple to use, and return objects are easy to inspect. Because of it's simplicity S3 facilitates collaborative code development. 
 
 ## <a href="#deps" name="deps"></a> Package dependencies
 
