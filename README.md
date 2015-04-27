@@ -1,6 +1,6 @@
 # rOpenSci Packaging Guide
 
-rOpenSci accepts packages that meet our guidelines via a streamlined onboarding process. To ensure a consistent style across all of our tools we have developed this guide. We strongly recommened that R package developers read Hadley Wickham's concise but thorough book on package development which is available for [free online](http://r-pkgs.had.co.nz/) (but also in [print](http://www.amazon.com/dp/1491910593/ref=cm_sw_su_dp?tag=r-pkgs-20)).
+rOpenSci accepts packages that meet our guidelines via a streamlined onboarding process. To ensure a consistent style across all of our tools we have developed this guide. We strongly recommend that R package developers read Hadley Wickham's concise but thorough book on package development which is available for [free online](http://r-pkgs.had.co.nz/) (but also in [print](http://www.amazon.com/dp/1491910593/ref=cm_sw_su_dp?tag=r-pkgs-20)).
 
 * [Package naming](#pkgnaming)
 * [Function/variable naming](#funvar)
@@ -76,7 +76,7 @@ Use `testthat` for writing tests. Strive to write tests as you write each new fu
 
 __A note on development versions__
 
-For Github versions of your package, always add a fourth number (`0.99`) to distiguish from stable CRAN releases. E.g. when you send `0.4.0` to CRAN, immediately bump the GitHub version to `0.4.0.99`. Remove the `.99` right before each CRAN submission.
+For Github versions of your package, always add a fourth number (`0.99`) to distinguish from stable CRAN releases. E.g. when you send `0.4.0` to CRAN, immediately bump the GitHub version to `0.4.0.99`. Remove the `.99` right before each CRAN submission.
 
 * Git tag each release. [[more info](http://marker.to/ZYd3kZ)] 
 
@@ -99,8 +99,8 @@ Use `Imports` instead of `Depends` for packages providing functions you use inte
 
 
 * For http requests we strongly recommend using `httr` over `RCurl`. 
-* For parinsg JSON, use `jsonlite` instead of `rjson` or `RJSONIO`. 
-* For parinsg XML, if you only need to parse XML data, `xml2` is a good option as it makes parsing easier. However, if you need to create XML (in addition to parsing it), use the `XML` package. The `XML` package is more low level than `xml2`, and allows finer manipulation, and may be favored by those more familiar with XML data. 
+* For parsing JSON, use `jsonlite` instead of `rjson` or `RJSONIO`. 
+* For parsing XML, if you only need to parse XML data, `xml2` is a good option as it makes parsing easier. However, if you need to create XML (in addition to parsing it), use the `XML` package. The `XML` package is more low level than `xml2`, and allows finer manipulation, and may be favored by those more familiar with XML data. 
 
 
 ## <a href="#messages" name="messages"></a> Console messages
@@ -114,6 +114,6 @@ The [`devtools` package](https://github.com/hadley/devtools) and it's wiki are a
 
 If you are submitting a package to rOpenSci via the [onboarding repo](https://github.com/ropensci/onboarding), you can ask questions there in the issue tracker, or in our [discussion forum](https://discuss.ropensci.org/).
 
-# Suggestions and updatse
+# Suggestions and updates
 
 The following are in-development packaging guidelines for contributed packages to rOpenSci. Corrections, suggestions and general improvements are welcome on  [our issue tracker](https://github.com/ropensci/packaging_guide/issues).
