@@ -172,11 +172,13 @@ Use `message()` and `warning()` to communicate with the user in your functions. 
 
 ## <a href="#files" name="files"></a> Files and file names
 
-Use meaningful names like `optim.R` instead of `aaaa.r` if the function within is named `optim()`. In addition, try to avoid piling many unrelated functions in a single file, so that the file `optim.R` really only has the function `optim()` and any helper functions only used by it. Internal helper functions used across many functions should go in a separate file, e.g. `utils.R`. Naming files so that others can easily find things makes collaborative development easier.
+Use meaningful names like `optim.R` instead of `aaaa.r` if the function within is named `optim()`. In addition, try to avoid piling many unrelated functions in a single file, so that the file `optim.R` really only has the function `optim()` and any helper functions only used by it. Internal helper functions used across many functions should go in a separate file, e.g. `utils.R`. Naming files so that others can easily find things makes collaborative development easier!
 
 ## <a href="#further" name="further"></a> Further guidance
 
 The [`devtools` package](https://github.com/hadley/devtools) and it's wiki are an excellent resource for in-depth package development help.
+
+If you are submitting a package to rOpenSci via the [onboarding repo](https://github.com/ropensci/onboarding), you can ask questions there in Issues, in your submitting repo, or in our [discussion forum](https://discuss.ropensci.org/).
 
 [semver]: http://semver.org/
 [yihuiver]: http://yihui.name/en/2013/06/r-package-versioning/
