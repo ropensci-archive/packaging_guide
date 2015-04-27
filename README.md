@@ -97,7 +97,7 @@ __A note on development versions__
 * Use `Imports` instead of `Depends` for packages providing functions you use internally only. Use `Depends` only if you intend for the user to have functions available from your package dependencies. Make sure to list packages used for testing (`testthat`), and documentation (`knitr`, `roxygen2`) in your `Suggests` section of package dependencies. If you use any packages in your examples sections, make sure to list those, if not already listed elsewhere, in `Enhances` section of package dependencies. 
 
 
-### <a href="#tools" name="tools"></a> Recommended scaffolding
+## <a href="#tools" name="tools"></a> Recommended scaffolding
 
 
 * For http requests we strongly recommend using `httr` over `RCurl`. 
@@ -107,7 +107,7 @@ __A note on development versions__
 
 ## <a href="#messages" name="messages"></a> Console messages
 
-Use `message()` and `warning()` to communicate with the user in your functions. Please do not use `print()` or `cat()` unless it's for a `print.*()` method, as these methods of printing messages are harder for the user to suppress.
+* Use `message()` and `warning()` to communicate with the user in your functions. Please do not use `print()` or `cat()` unless it's for a `print.*()` method, as these methods of printing messages are harder for the user to suppress.
 
 
 ## <a href="#further" name="further"></a> Further guidance
@@ -116,6 +116,6 @@ Use `message()` and `warning()` to communicate with the user in your functions. 
 
 * If you are submitting a package to rOpenSci via the [onboarding repo](https://github.com/ropensci/onboarding), you can direct further questions to the rOpenSci team in the issue tracker, or in our [discussion forum](https://discuss.ropensci.org/).
 
-# Suggestions and updates
+## Suggestions and updates
 
-These packaging guidelines are a work in progress for packages contributed to the rOpenSci suite. Corrections, suggestions and general improvements are welcome on [our issue tracker](https://github.com/ropensci/packaging_guide/issues).
+* These packaging guidelines are a work in progress for packages contributed to the rOpenSci suite. Corrections, suggestions and general improvements are welcome on [our issue tracker](https://github.com/ropensci/packaging_guide/issues).
