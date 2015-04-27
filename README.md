@@ -126,15 +126,15 @@ Follow [Hadley's guidelines on syntax](http://adv-r.had.co.nz/Style.html). In sh
 
 ## <a href="#apis" name="apis"></a> Best practices for working with APIs
 
-Again, Hadley has good advice here. See his vignette [Best practices for writing an API package](http://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) in the `httr` package.
+Again, Hadley has good advice here. See his vignette [Best practices for writing an API package](http://cran.rstudio.com/web/packages/httr/vignettes/api-packages.html) in the `httr` package.
 
-### <a href="#tools" name="tools"></a> Tools
+### <a href="#tools" name="tools"></a> Tools of the trade
 
-* For http requests, use `httr` instead of `RCurl`. `RCurl` is a low level wrapper around the `libcurl` library, and has a lot of flexibility. `httr` is a higher level client, making it much easier to do http requests. In addition, `httr` will be maintained moving forward, and is actively incorporating new feaures.
-* For parinsg JSON, use `jsonlite` instead of `rjson` or `RJSONIO`. These packages do similar things, but `jsonlite` is now the most used JSON client for R, and we believe will get the most support moving forward.
-* For parinsg XML, if you only need to parse XML data, `xml2` is a good option as it makes parsing easier. However, if you need to create XML, use the `XML` package. The `XML` package is more low level than `xml2`, and allows finer manipulation, and may be favored by those more familiar with XML data. 
-
-... more to come
+* For http requests, in most cases use `httr` instead of `RCurl`. `RCurl` is a low level wrapper around the `libcurl` library, and has a lot of flexibility. `httr` is a higher level client, making it much easier to do http requests. In addition, `httr` will be maintained moving forward, and is actively incorporating new feaures. `httr` currently depends on `RCurl` for the low level interface to the curl C library, but will soon swap out `RCurl`.
+* For parinsg JSON, use `jsonlite` instead of `rjson` or `RJSONIO`. These packages do similar things, but `jsonlite` is now the most used JSON client for R, and we believe will get the most support moving forward in terms of bug fixes, features, and performance improvements.
+* For parinsg XML, if you only need to parse XML data, `xml2` is a good option as it makes parsing easier. However, if you need to create XML (in addition to parsing it), use the `XML` package. The `XML` package is more low level than `xml2`, and allows finer manipulation, and may be favored by those more familiar with XML data. 
+* For FTP servers, you can use `httr`.
+* When scraping data, `rvest` is a great tool to make scraping html text easier. If you want finer control, the `XML` package can be used. Make sure that the site allows scraping. rOpenSci does not allow packages that violate terms of service.
 
 ### <a href="#auth" name="auth"></a> Authentication
 
