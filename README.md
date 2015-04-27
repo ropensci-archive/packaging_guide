@@ -71,14 +71,7 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 
 ## <a href="#ver" name="ver"></a> Versioning
 
-* We strongly recommend that rOpenSci packages use semantic versioning.
-* Version should be `major.minor.patch (x.y.z)`.
-* Begin with `0.0.0` and increment the third 0 with each new feature or bug fix. When you are ready to release the first version, round the second digit to 1 (e.g. `0.1.0`), reset the patch to 0.
-* Follow a similar pattern with each release (e.g. `0.3.5` will become `0.4.0`) going as high as you need (`0.123.0`). Only update the major release if your update will break backwards compatibility.
-
-__A note on development versions__
-
-* For Github versions of your package, always add a fourth number (`0.99`) to distinguish from stable CRAN releases. E.g. when you send `0.4.0` to CRAN, immediately bump the GitHub version to `0.4.0.99`. Remove the `.99` right before each CRAN submission.
+* We strongly recommend that rOpenSci packages use semantic versioning. A detailed explanation is available on the [description chapter](http://r-pkgs.had.co.nz/description.html#version).
 
 * Git tag each release. [[more info](http://marker.to/ZYd3kZ)] 
 
