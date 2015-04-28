@@ -1,6 +1,8 @@
 # rOpenSci Packaging Guide
 
-rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding process](https://github.com/ropensci/onboarding). To ensure a consistent style across all of our tools we have developed this guide. We strongly recommend that package developers read Hadley Wickham's concise but thorough book on package development which is available for [free online](http://r-pkgs.had.co.nz/) (and [print](http://www.amazon.com/dp/1491910593/ref=cm_sw_su_dp?tag=r-pkgs-20)).
+rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding process](https://github.com/ropensci/onboarding). To ensure a consistent style across all of our tools we have developed this concise guide. We strongly recommend that package developers read Hadley Wickham's concise but thorough book on package development which is available for [free online](http://r-pkgs.had.co.nz/) (and [print](http://www.amazon.com/dp/1491910593/ref=cm_sw_su_dp?tag=r-pkgs-20)).
+
+## Sections (in order of importance)
 
 * [Package naming](#pkgnaming)
 * [Function/variable naming](#funvar)
@@ -21,7 +23,7 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 
 * We strongly recommend `snake_case` over all other styles unless you are porting over a package that is already in wide use. 
 
-* Avoid function name conflicts with base packages or other widely used ones (e.g. `ggplot2`, `dplyr`, `magrittr`, `data.table`)
+* Avoid function name conflicts with base packages or other popular ones (e.g. `ggplot2`, `dplyr`, `magrittr`, `data.table`)
 
 * For more information on how to style your code, name functions, and R scripts inside the `R/` folder, we recommend reading the [code chapter in Hadley's book](http://r-pkgs.had.co.nz/r.html).
 
@@ -55,16 +57,16 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 
 * We strongly encourage all submissions to use `roxygen2` for documentation.  `roxygen2` is [an R package](http://cran.r-project.org/web/packages/roxygen2/index.html) that automatically compiles `.Rd` files to your `man` folder in your package from simple tags written above each function.
 
-* Read Hadley's chapter on [documentation](http://r-pkgs.had.co.nz/man.html).
+* More information on using roxygen2 [documentation](http://r-pkgs.had.co.nz/man.html) is available on the R packages book.
 
-* By using `roxygen2`, this means you can generate your `NAMESPACE`. 
+* One key advantage of using `roxygen2` is that your `NAMESPACE` will always be automatically generated and up to date. 
 
-* Avoid exporting all functions by default. 
+* Avoid exporting all functions by default. Add `#' @noRd` to internal functions.
 
 
 ## <a href="#testing" name="testing"></a> Testing
 
-* Use `testthat` for writing tests. Strive to write tests as you write each new function. This serves the obvious need to have proper testing for the package, but allows you to think about various ways in which a function can fail, and to _defensively_ code against those. [More information](http://r-pkgs.had.co.nz/tests.html).
+* We recommend using `testthat` for writing tests. Strive to write tests as you write each new function. This serves the obvious need to have proper testing for the package, but allows you to think about various ways in which a function can fail, and to _defensively_ code against those. [More information](http://r-pkgs.had.co.nz/tests.html).
 
 * `testthat` has a function `skip_on_cran()` that you can use to not run tests on CRAN. We recommend using this on all functions that are API calls since they are quite likely to fail on CRAN. These tests will still run on Travis.
 
@@ -73,7 +75,7 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 
 * We strongly recommend that rOpenSci packages use semantic versioning. A detailed explanation is available on the [description chapter](http://r-pkgs.had.co.nz/description.html#version).
 
-* Git tag each release. [[more info](http://marker.to/ZYd3kZ)] 
+* Git tag each release after every submissiont o cran. [[more info](http://marker.to/ZYd3kZ)] 
 
 ## <a href="#ci" name="ci"></a> Continuous integration
 
