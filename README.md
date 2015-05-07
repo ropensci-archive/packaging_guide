@@ -107,7 +107,7 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 
 ## <a href="#further" name="further"></a> Further guidance
 
-* The [`devtools` package](https://github.com/hadley/devtools) and it's wiki are an excellent resource for in-depth package development help.
+* The [`devtools` package](https://github.com/hadley/devtools) and its wiki are an excellent resource for in-depth package development help.
 
 * If you are submitting a package to rOpenSci via the [onboarding repo](https://github.com/ropensci/onboarding), you can direct further questions to the rOpenSci team in the issue tracker, or in our [discussion forum](https://discuss.ropensci.org/).
 
