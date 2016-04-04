@@ -9,6 +9,7 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 * [README](#rme)
 * [Code of conduct](#conduct)
 * [Documentation](#docs)
+* [Authorship](#authorship)
 * [Package dependencies](#deps)
 * [Testing](#testing)
 * [Continuous integration](#ci)
