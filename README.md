@@ -19,11 +19,11 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 
 ## <a href="#pkgnaming" name="pkgnaming"></a> Package naming
 
-* We strongly recommend short, descriptive names in lower case. If your package deals with one or more commercial services, please make sure the name does not violate branding guidelines. 
+* We strongly recommend short, descriptive names in lower case. If your package deals with one or more commercial services, please make sure the name does not violate branding guidelines.
 
 ## <a href="#funvar" name="funvar"></a> Function/variable naming & general syntax
 
-* We strongly recommend `snake_case` over all other styles unless you are porting over a package that is already in wide use. 
+* We strongly recommend `snake_case` over all other styles unless you are porting over a package that is already in wide use.
 
 * Avoid function name conflicts with base packages or other popular ones (e.g. `ggplot2`, `dplyr`, `magrittr`, `data.table`)
 
@@ -46,7 +46,7 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 [![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
 ```
 
-* We recommend not creating `README.md` directly, but from a `README.Rmd` file (an Rmarkdown file) where possible. The advantage of the `.Rmd` file is you can combine text with code that can be easily updated whenever your package is updated. 
+* We recommend not creating `README.md` directly, but from a `README.Rmd` file (an Rmarkdown file) where possible. The advantage of the `.Rmd` file is you can combine text with code that can be easily updated whenever your package is updated.
 
 * See `devtools::use_readme_rmd()` to get a template for a `README.Rmd` file in your package.
 
@@ -64,11 +64,11 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 
 * More information on using roxygen2 [documentation](http://r-pkgs.had.co.nz/man.html) is available on the R packages book.
 
-* One key advantage of using `roxygen2` is that your `NAMESPACE` will always be automatically generated and up to date. 
+* One key advantage of using `roxygen2` is that your `NAMESPACE` will always be automatically generated and up to date.
 
 * Avoid exporting all functions by default. Add `#' @noRd` to internal functions.
 
-## <a href="#authorship", name="authorship></a> Authorship
+## <a href="#authorship" name="authorship"></a> Authorship
 
 The `DESCRIPTION` file of a package should list package authors and contributors to a package, using the `Authors@R` syntax to indicate their roles (author/creator/contributor etc.) if there is more than one author. See [this section of "Writing R Extensions"](https://cran.rstudio.com/doc/manuals/r-release/R-exts.html#The-DESCRIPTION-file) for details.  If you feel that your reviewers have made a substantial contribution to the development of your package, you may choose to list them with a Reviewer contributor type (`"rev"`), like so:
 
@@ -85,29 +85,29 @@ The `DESCRIPTION` file of a package should list package authors and contributors
 
 * We strongly recommend that rOpenSci packages use semantic versioning. A detailed explanation is available on the [description chapter](http://r-pkgs.had.co.nz/description.html#version).
 
-* Git tag each release after every submissiont o cran. [[more info](http://marker.to/ZYd3kZ)] 
+* Git tag each release after every submissiont o cran. [[more info](http://marker.to/ZYd3kZ)]
 
 ## <a href="#ci" name="ci"></a> Continuous integration
 
-* All rOpenSci packages must use continuous integration. This ensures that all commits, pull requests, and new branches are run through `R CMD CHECK`. R is now a [natively supported language on Travis-CI](http://blog.travis-ci.com/2015-02-26-test-your-r-applications-on-travis-ci/), making it easier than ever to do continuous integration. See [R Packages](http://marker.to/NEr8Bd) for more help. 
+* All rOpenSci packages must use continuous integration. This ensures that all commits, pull requests, and new branches are run through `R CMD CHECK`. R is now a [natively supported language on Travis-CI](http://blog.travis-ci.com/2015-02-26-test-your-r-applications-on-travis-ci/), making it easier than ever to do continuous integration. See [R Packages](http://marker.to/NEr8Bd) for more help.
 
 
 ## <a href="#egs" name="egs"></a> Examples
 
-* Include extensive examples in the documentation. In addition to demonstrating how to use the package, these can act as an easy way to test package functionality before there are proper tests. However, keep in mind we require tests in contributed packages. If you prefer not to clutter up code with extensive documentation, place further documentation/examples in files in a `man-roxygen` folder in the root of your package, and those will be combined into the manual file by the use of `@template <file name>`, for example. You can run examples with `devtools::run_examples()`. 
+* Include extensive examples in the documentation. In addition to demonstrating how to use the package, these can act as an easy way to test package functionality before there are proper tests. However, keep in mind we require tests in contributed packages. If you prefer not to clutter up code with extensive documentation, place further documentation/examples in files in a `man-roxygen` folder in the root of your package, and those will be combined into the manual file by the use of `@template <file name>`, for example. You can run examples with `devtools::run_examples()`.
 
 
 ## <a href="#deps" name="deps"></a> Package dependencies
 
-* Use `Imports` instead of `Depends` for packages providing functions you use internally only. Use `Depends` only if you intend for the user to have functions available from your package dependencies. Make sure to list packages used for testing (`testthat`), and documentation (`knitr`, `roxygen2`) in your `Suggests` section of package dependencies. If you use any packages in your examples sections, make sure to list those, if not already listed elsewhere, in `Enhances` section of package dependencies. 
+* Use `Imports` instead of `Depends` for packages providing functions you use internally only. Use `Depends` only if you intend for the user to have functions available from your package dependencies. Make sure to list packages used for testing (`testthat`), and documentation (`knitr`, `roxygen2`) in your `Suggests` section of package dependencies. If you use any packages in your examples sections, make sure to list those, if not already listed elsewhere, in `Enhances` section of package dependencies.
 
 
 ## <a href="#tools" name="tools"></a> Recommended scaffolding
 
 
-* For http requests we strongly recommend using `httr` over `RCurl`. 
-* For parsing JSON, use `jsonlite` instead of `rjson` or `RJSONIO`. 
-* For parsing XML, if you only need to parse XML data, `xml2` is a good option as it makes parsing easier. However, if you need to create XML (in addition to parsing it), use the `XML` package. The `XML` package is more low level than `xml2`, and allows finer manipulation, and may be favored by those more familiar with XML data. 
+* For http requests we strongly recommend using `httr` over `RCurl`.
+* For parsing JSON, use `jsonlite` instead of `rjson` or `RJSONIO`.
+* For parsing XML, if you only need to parse XML data, `xml2` is a good option as it makes parsing easier. However, if you need to create XML (in addition to parsing it), use the `XML` package. The `XML` package is more low level than `xml2`, and allows finer manipulation, and may be favored by those more familiar with XML data.
 
 
 ## <a href="#messages" name="messages"></a> Console messages
