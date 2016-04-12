@@ -9,6 +9,7 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 * [README](#rme)
 * [Code of conduct](#conduct)
 * [Documentation](#docs)
+* [News](#news)
 * [Authorship](#authorship)
 * [Package dependencies](#deps)
 * [Testing](#testing)
@@ -67,6 +68,28 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 * One key advantage of using `roxygen2` is that your `NAMESPACE` will always be automatically generated and up to date.
 
 * Avoid exporting all functions by default. Add `#' @noRd` to internal functions.
+
+## <a href="#news" name="news"></a> News
+
+* It is mandatory to use a `NEWS` or `NEWS.md` file in the root of your package.
+See the sample [NEWS file](NEWS_sample.md)
+* Update the news file before every CRAN release, with a section with the package name,
+version and date of release, like:
+
+```
+foobar 0.2.0 (2016-04-01)
+=========================
+```
+
+* Under that header, put in sections as neeed, including: `NEW FEATURES`, `MINOR IMPROVEMENTS`,
+`BUG FIXES`, `DEPRECATED AND DEFUNCT`. Under each header list items as needed. For each item give
+a description of the new feature, improvement, bug fix, or deprecated function/feature. Link
+to any related GitHub issue like `(#12)`. The `(#12)` will resolve on GitHub in Releases to a
+link to that issue in the repo.
+* After you have added a `git tag` and pushed up to GitHub, add the news items for that
+tagged version to a Release on the Releases tab in your GitHub repo with a title like
+`pkgname v0.1.0`
+* If you use `NEWS`, add it to `.Rbuildignore`, but not if you use `NEWS.md`
 
 ## <a href="#authorship" name="authorship"></a> Authorship
 
