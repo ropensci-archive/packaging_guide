@@ -34,18 +34,18 @@ rOpenSci accepts packages that meet our guidelines via a streamlined [onboarding
 
 * All packages should have a README file, named `README.md`, in the root of the repository. The README should include, from top to bottom:
 
-```
-* The package name
-* Badges for Travis-CI (and any other badges)
-* Short description of the package
-* Installation instructions
-* Example usage
-* rOpenSci footer image - use this markdown line
-```
+    ```
+    * The package name
+    * Badges for Travis-CI (and any other badges)
+    * Short description of the package
+    * Installation instructions
+    * Example usage
+    * rOpenSci footer image - use this markdown line
+    ```
 
-```
-[![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
-```
+    ```
+    [![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
+    ```
 
 * We recommend not creating `README.md` directly, but from a `README.Rmd` file (an Rmarkdown file) where possible. The advantage of the `.Rmd` file is you can combine text with code that can be easily updated whenever your package is updated.
 
@@ -76,12 +76,12 @@ See the sample [NEWS file](NEWS_sample.md)
 * Update the news file before every CRAN release, with a section with the package name,
 version and date of release, like:
 
-```
-foobar 0.2.0 (2016-04-01)
-=========================
-```
+    ```
+    foobar 0.2.0 (2016-04-01)
+    =========================
+    ```
 
-* Under that header, put in sections as neeed, including: `NEW FEATURES`, `MINOR IMPROVEMENTS`,
+* Under that header, put in sections as needed, including: `NEW FEATURES`, `MINOR IMPROVEMENTS`,
 `BUG FIXES`, `DEPRECATED AND DEFUNCT`. Under each header list items as needed. For each item give
 a description of the new feature, improvement, bug fix, or deprecated function/feature. Link
 to any related GitHub issue like `(#12)`. The `(#12)` will resolve on GitHub in Releases to a
