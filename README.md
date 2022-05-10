@@ -1,6 +1,5 @@
-[![Project Status: Moved to https://ropensci.github.io/dev_guide/ – The project has been moved to a new location, and the version at that location should be considered authoritative.](http://www.repostatus.org/badges/latest/moved.svg)](http://www.repostatus.org/#moved) to [https://ropensci.github.io/dev_guide/](https://ropensci.github.io/dev_guide/)
+# packaging_guide
 
+[![Project Status: Abandoned](https://www.repostatus.org/badges/latest/abandoned.svg)](https://www.repostatus.org/#abandoned)
 
-# rOpenSci Packaging Guide
-
-The packaging guide has been moved to the guide for rOpenSci package development at https://ropensci.github.io/dev_guide/
+This repository has been archived. The former README is now in [README-NOT.md](README-NOT.md).
